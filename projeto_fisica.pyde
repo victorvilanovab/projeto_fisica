@@ -19,13 +19,19 @@ def draw():
         
 def display():
     fill(1,1,1)
-    rect(0, 740, 1400, 60)
+    rect(0, 740, 200 , 60)
     fill(255,0,0)
-    triangle(150, 740 , 390, 740, 390,500)
+    #rect(150, 740 , 390, 740)
     line(150, 740 , 110,700)
     line(130, 720 , x1, y1)
     fill(250,0,230)
+    rect(960+120, 500 , 5, 790)
+    line(960, 790 , 960+120,500)
+    line(960+250, 790 , 960+120+5,500)
+    rect(960, 790 , 250, 740)
     ellipse(x1, y1, 50, 50)
+    noFill()
+    circle(960+120, 500, 450)
 
 def movimento():
     global x1, y1, c_0, c
@@ -39,12 +45,12 @@ def movimento2():
         
         t = (millis()-t0)/1000.0  
         delta_x = c_0 - c
-        v = sqrt(k*sq(delta_x)-2*10*(y1))
+        v = sqrt(k*sq(delta_x)-2*50*(y1))
         vx=v*sqrt(2)/2
-        vy=-(vx-10*t)
+        vy=-(vx-50*t)
         x2 = (x1 + vx*t)
-        y2 = (y1 + vy*t+ 5*t*t)
-        fill(250,0,230)
+        y2 = (y1 + vy*t+ 25*t*t)
+        fill(0,0,230)
         ellipse(x2, y2, 50, 50)
         text("x2 e {}, y2 e {}, v e {},vx e {}, vy e {},t e {}".format(x2,y2,v,vx,vy,t), 200,200)
         delta_x = c_0 - c
